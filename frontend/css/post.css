@@ -1,12 +1,13 @@
 .back-nav {
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 25px;
 }
 
 #post-detail {
   border: 1px solid #fff;
   border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
 }
 
 #post-detail .post-title {
@@ -16,10 +17,36 @@
 
 #post-detail .post-content p {
   font-family: 'Courier New', monospace;
-  margin-top: 10px;
+  margin-top: 15px;
+  line-height: 1.6;
 }
 
 #post-detail .article-link {
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   display: inline-block;
+}
+
+#post-detail .user-info {
+  margin-bottom: 15px;
+}
+
+#post-detail .badge {
+  margin-bottom: 10px;
+}
+
+.comments-section {
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
+
+.comment-form-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.main {
+  overflow-y: auto;
+  height: 100vh;
+  padding: 5vh 5vw;
 }

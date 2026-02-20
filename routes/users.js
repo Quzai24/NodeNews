@@ -56,6 +56,7 @@ router.post('/register', async (req, res) => {
     const result = await db.collection('users').insertOne(newUser);
     res.status(201).json({ ...newUser, _id: result.insertedId });
   } catch (err) {
+    console.error('Registration error:', err);
     res.status(500).json({ error: 'Failed to register user.' });
   }
 });
@@ -77,6 +78,7 @@ router.post('/login', async (req, res) => {
     await db.collection('users').updateOne({ _id: user._id }, { $set: { refreshToken } });
     res.json({ token, refreshToken, user: { _id: user._id, username: user.username } });
   } catch (err) {
+    console.error('Login error:', err);
     res.status(500).json({ error: 'Failed to login user.' });
   }
 });
