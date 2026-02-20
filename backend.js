@@ -22,6 +22,7 @@ app.use('/api/trending', trendingRouter);
 app.use('/api/recent', recentRouter);
 app.use('/api/search', searchRouter);
 app.use('/api/users', usersRouter);
+app.use('/LICENSE', express.static('LICENSE'));
 
 connectDB().then(() => {
   app.listen(PORT, () => {
