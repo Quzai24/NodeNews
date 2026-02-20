@@ -1,6 +1,5 @@
 import { refreshToken } from './api.js';
 
-//get a user posts onto the html page
 const postContainer = document.getElementById('post-container');
 const username = localStorage.getItem('username');
 
@@ -14,10 +13,10 @@ function showError(msg) {
 
 function renderPosts(posts) {
   if (posts.length === 0) {
-    postContainer.innerHTML = '<p class="text-muted">No posts found.</p>';
+    postContainer.innerHTML += '<p class="text-muted">No posts found.</p>';
     return;
   }
-  postContainer.innerHTML = posts
+  postContainer.innerHTML += posts
     .map(
       (post) => `
       <div class="news-post">
@@ -78,7 +77,52 @@ async function loadUserPosts() {
     }
     const posts = await res.json();
     profileNameElem.innerHTML = `<h2>${username}</h2>`;
-    postContainer.innerHTML = '';
+    postContainer.innerHTML = `
+            <div class="new-post-form mb-4">
+              <h4>Create a Post</h4>
+              <form id="new-post-form">
+                <div class="mb-2">
+                  <input
+                    type="text"
+                    id="post-title"
+                    class="form-control"
+                    placeholder="Title"
+                    required
+                  />
+                </div>
+                <div class="mb-2">
+                  <textarea
+                    id="post-content"
+                    class="form-control"
+                    rows="4"
+                    placeholder="Write your post..."
+                    required
+                  ></textarea>
+                </div>
+                <div class="mb-2">
+                  <input
+                    type="url"
+                    id="post-articleUrl"
+                    class="form-control"
+                    placeholder="Optional article URL"
+                  />
+                </div>
+                <div class="mb-2">
+                  <select id="post-category" class="form-select" required>
+                    <option value="">Select category</option>
+                    <option value="health">Health</option>
+                    <option value="tech">Tech</option>
+                    <option value="politics">Politics</option>
+                    <option value="world">World</option>
+                    <option value="science">Science</option>
+                  </select>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary">Post</button>
+                </div>
+              </form>
+            </div>
+    `;
     renderPosts(posts);
   } catch (err) {
     showError('Failed to load user posts.');

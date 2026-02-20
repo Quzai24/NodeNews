@@ -1,17 +1,8 @@
-
-document.addEventListener('DOMContentLoaded', () => {
-  const username = localStorage.getItem('username');
-  if (username) {
-    document.querySelectorAll('.profile').forEach(el => (el.textContent = username));
-  }
-});
+import { refreshToken } from './api.js';
 
 const postContainer = document.getElementById('post-container');
-const categoryButtons = document.querySelectorAll('.category-btn');
-const searchBar = document.querySelector('.search-bar');
-const searchForm = document.querySelector('.search-container form');
-
-let activeCategory = '';
+const params = new URLSearchParams(window.location.search);
+const username = params.get('username');
 
 function showError(msg) {
   postContainer.innerHTML = `<div class="alert alert-danger">${msg}</div>`;
@@ -19,11 +10,10 @@ function showError(msg) {
 
 function renderPosts(posts) {
   if (posts.length === 0) {
-    postContainer.innerHTML = '<p class="text-muted">No posts found.</p>';
+    postContainer.innerHTML += '<p class="text-muted">No posts found.</p>';
     return;
   }
-  
-  postContainer.innerHTML = posts
+  postContainer.innerHTML += posts
     .map(
       (post) => `
       <div class="news-post">
@@ -74,61 +64,21 @@ function renderPosts(posts) {
     .join('');
 }
 
-// Load posts — uses search API if filtering, otherwise loads all posts
-async function loadPosts() {
-  postContainer.innerHTML = '<p class="text-center text-muted">Loading...</p>';
-
-  const search = searchBar ? searchBar.value.trim() : '';
-
+async function loadUserPosts() {
   try {
-    let res;
-
-    if (activeCategory || search) {
-      let url = '/api/search?';
-      if (activeCategory) url += `category=${activeCategory}&`;
-      if (search) url += `q=${search}`;
-      res = await fetch(url);
-    } else {
-      res = await fetch('/api/posts');
-    }
-
+    const res = await fetch(`/api/posts/user/${username}`);
+    const profileNameElem = document.getElementById('username');
     if (!res.ok) {
-      showError(`Failed to fetch posts: ${res.status} ${res.statusText}`);
+      showError(`Failed to fetch user posts: ${res.status} ${res.statusText}`);
       return;
     }
-
     const posts = await res.json();
+    profileNameElem.innerHTML = `<h2>${username}</h2>`;
+    postContainer.innerHTML = '';
     renderPosts(posts);
   } catch (err) {
-    showError('Failed to load posts.');
+    showError('Failed to load user posts.');
   }
 }
 
-// Category button clicks
-if (categoryButtons) {
-  categoryButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      categoryButtons.forEach((b) => b.classList.remove('active'));
-
-      if (activeCategory === btn.dataset.category) {
-        activeCategory = '';
-      } else {
-        btn.classList.add('active');
-        activeCategory = btn.dataset.category;
-      }
-
-      loadPosts();
-    });
-  });
-}
-
-// Search form submit
-if (searchForm) {
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    loadPosts();
-  });
-}
-
-// Load all posts on page load
-loadPosts();
+loadUserPosts();
