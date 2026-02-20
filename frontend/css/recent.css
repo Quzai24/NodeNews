@@ -2,15 +2,48 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: 80vh;
+  height: 70vh;
+  padding-right: 10px;
   overflow-y: scroll;
 }
 
 .recent-post {
   display: flex;
-  align-items: center;
   gap: 15px;
-  padding: 10px;
-  border: 2px solid #fff;
+  align-items: flex-start;
+  padding: 15px;
+  border: 1px solid #fff;
   border-radius: 20px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.recent-post:hover {
+  background-color: #111;
+}
+
+.recent-rank {
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+.recent-info h5 {
+  font-family: 'Courier New', monospace;
+  margin-bottom: 5px;
+}
+
+.recent-info p {
+  font-family: 'Courier New', monospace;
+  margin: 0;
+}
+
+
+.page-title {
+  margin-bottom: 20px;
+}
+
+.period-buttons {
+  margin-bottom: 25px;
 }
