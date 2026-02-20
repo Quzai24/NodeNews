@@ -19,9 +19,8 @@ registerSubmit.addEventListener('click', async (e) => {
       alert(`Registration failed: ${errorData.error}`);
       return;
     }
-    // continue to index page on successful registration without alert
     alert('Registration successful!');
-    window.location.href = '/';
+    window.location.href = '/index.html';
   } catch (err) {
     alert('Registration failed: An error occurred.');
   }

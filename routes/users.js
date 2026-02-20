@@ -57,6 +57,9 @@ router.post('/register', async (req, res) => {
     res.status(201).json({ ...newUser, _id: result.insertedId });
   } catch (err) {
     res.status(500).json({ error: 'Failed to register user.' });
+    console.error('Registration error:', err);
+    console.error('Request body:', req.body);
+    console.error('Stack trace:', result ? result.insertedId : 'No result');
   }
 });
 

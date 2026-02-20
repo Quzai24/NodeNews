@@ -22,7 +22,7 @@ loginSubmit.addEventListener('click', async (e) => {
     localStorage.setItem('refreshToken', data.refreshToken);
         // continue to index page on successful registration without alert
     alert('Login successful!');
-    window.location.href = '/';
+    window.location.href = '/index.html';
   } catch (err) {
     alert('Login failed: An error occurred.');
   }

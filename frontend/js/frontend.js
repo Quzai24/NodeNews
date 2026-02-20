@@ -5,6 +5,8 @@ const searchForm = document.querySelector('.search-container form');
 
 let activeCategory = '';
 
+
+
 function showError(msg) {
   postContainer.innerHTML = `<div class="alert alert-danger">${msg}</div>`;
 }

@@ -73,7 +73,7 @@
           <nav class="nav flex-column navigation">
             <h1>NewsNode</h1>
             <div class="link">
-            <a class="nav-link" href="./userpage.html"><h3 class="profile">Profile Name</h3></a>
+              <a class="nav-link" href="./userpage.html"><h3 class="profile">Profile Name</h3></a>
             </div>
             <div class="link">
               <a class="nav-link active" href="./index.html"><h2>Home</h2></a>
@@ -92,27 +92,12 @@
 
         <!-- Main Content -->
         <div class="col-md-9 col-12 main">
-          <!-- Search Bar -->
-          <div class="search-container">
-            <form action="">
-              <input class="search-bar" type="text" placeholder="Search.." name="search" />
-              <input class="search-submit" type="image" src="./sourceimages/search.svg" />
-            </form>
+          <!-- User Profile -->
+          <div class="user-profile">
+            <h2>User Profile</h2>
+            <p>Welcome to your profile page!</p>
           </div>
-          <!-- Category Filter -->
-          <div class="category-buttons mb-3">
-            <button class="btn btn-outline-light category-btn" data-category="Politics">
-              Politics
-            </button>
-            <button class="btn btn-outline-light category-btn" data-category="Tech">Tech</button>
-            <button class="btn btn-outline-light category-btn" data-category="Health">
-              Health
-            </button>
-            <button class="btn btn-outline-light category-btn" data-category="World">World</button>
-            <button class="btn btn-outline-light category-btn" data-category="Science">
-              Science
-            </button>
-          </div>
+
           <!-- News Posts from API -->
           <div class="post-container" id="post-container">
             <!-- Single Post Example -->
@@ -183,6 +168,5 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="./js/category.js"></script>
   </body>
 </html>

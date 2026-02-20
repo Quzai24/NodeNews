@@ -13,6 +13,12 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
+
+// Serve login.html on root path
+app.get('/', (req, res) => {        
+  res.sendFile('login.html', { root: 'frontend' });
+});
+
 app.use(express.static('frontend'));
 
 app.use('/api/posts', postsRouter);
