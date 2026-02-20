@@ -190,3 +190,13 @@ input[type='text'] {
 .auth-btn-container {
   margin-bottom: 15px;
 }
+.sidebar,
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .navigation,
+.offcanvas-body .navigation {
+  flex: 1;
+}
