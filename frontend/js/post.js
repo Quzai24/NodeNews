@@ -1,4 +1,4 @@
-import { apiGet, apiPost, apiPut, apiDelete } from './api.js';
+import { apiGet, apiPost } from './api.js';
 
 const params = new URLSearchParams(window.location.search);
 const postId = params.get('id');

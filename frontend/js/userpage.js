@@ -100,9 +100,9 @@ async function vote(postId, value) {
 }
 
 async function loadUserPosts() {
+  const username = document.getElementById('username').textContent.trim();
   try {
     const res = await fetch(`/api/posts/user/${username}`);
-    const profileNameElem = document.getElementById('username');
     if (!res.ok) {
       showError(`Failed to fetch user posts: ${res.status} ${res.statusText}`);
       return;

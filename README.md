@@ -9,11 +9,16 @@ A News Social Media platform
 
 ## Class
 
-CS 4550 — Web Development, Northeastern University (Khoury College of Computer Sciences)
+CS 5610 — Web Development, Northeastern University (Khoury College of Computer Sciences)
 
 ## Project Objective
 
 NewsNode is a news discussion platform where users can share, discover, and discuss current events through article links and commentary. The platform uses a voting system and trending algorithms to surface the most important discussions, helping users quickly identify what matters most. NewsNode provides a dedicated space for serious news discussions where journalists can share original research and users can explore diverse perspectives on important issues.
+
+## Website/Demo Link
+
+Link to application : https://nodenews-crjx.onrender.com/
+Link to Demo :
 
 ## Screenshot
 

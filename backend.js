@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 
 // Serve login.html on root path
-app.get('/', (req, res) => {        
+app.get('/', (req, res) => {
   res.sendFile('login.html', { root: 'frontend' });
 });
 

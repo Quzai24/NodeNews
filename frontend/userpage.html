@@ -163,13 +163,26 @@
     ></script>
     <script type="module">
       const token = localStorage.getItem('token');
+      const user = JSON.parse(localStorage.getItem('user') || 'null');
+
+      // Update profile name
+      document.querySelectorAll('.profile').forEach((el) => {
+        if (user && user.username) {
+          el.textContent = user.username;
+        } else {
+          el.textContent = 'Guest';
+        }
+      });
+
+      // Login/Logout button
       document.querySelectorAll('.auth-btn-container').forEach((el) => {
         if (token) {
           el.innerHTML = '<button class="btn btn-outline-light w-100">Logout</button>';
           el.querySelector('button').addEventListener('click', () => {
             localStorage.removeItem('token');
             localStorage.removeItem('refreshToken');
-            window.location.href = './index.html';
+            localStorage.removeItem('user');
+            window.location.href = './login.html';
           });
         } else {
           el.innerHTML = '<a href="./login.html" class="btn btn-outline-light w-100">Login</a>';

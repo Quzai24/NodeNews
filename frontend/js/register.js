@@ -13,7 +13,7 @@ registerSubmit.addEventListener('click', async (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password, repassword }),
     });
-    console.log(2)
+    console.log(2);
     if (!res.ok) {
       const errorData = await res.json();
       alert(`Registration failed: ${errorData.error}`);

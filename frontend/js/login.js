@@ -20,11 +20,8 @@ loginSubmit.addEventListener('click', async (e) => {
     const data = await res.json();
     localStorage.setItem('token', data.token);
     localStorage.setItem('refreshToken', data.refreshToken);
-    // store username for sidebar/profile display
-    if (data.user && data.user.username) {
-      localStorage.setItem('username', data.user.username);
-    }
-        // continue to index page on successful registration without alert
+    localStorage.setItem('user', JSON.stringify(data.user));
+    // continue to index page on successful registration without alert
     alert('Login successful!');
     // add the username to the user profile page
     window.location.href = '/index.html';
