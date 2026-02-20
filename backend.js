@@ -7,6 +7,7 @@ import votesRouter from './routes/votes.js';
 import trendingRouter from './routes/trending.js';
 import recentRouter from './routes/recent.js';
 import searchRouter from './routes/search.js';
+import usersRouter from './routes/users.js';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -20,6 +21,7 @@ app.use('/api/votes', votesRouter);
 app.use('/api/trending', trendingRouter);
 app.use('/api/recent', recentRouter);
 app.use('/api/search', searchRouter);
+app.use('/api/users', usersRouter);
 
 connectDB().then(() => {
   app.listen(PORT, () => {

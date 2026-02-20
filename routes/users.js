@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { getDB } from '../db/connection.js';
 import { ObjectId } from 'mongodb';
-require('dotenv').config();
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import 'dotenv/config.js';
 
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const router = Router();
 
 // GET user by username
