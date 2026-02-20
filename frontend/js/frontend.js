@@ -1,3 +1,11 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+  const username = localStorage.getItem('username');
+  if (username) {
+    document.querySelectorAll('.profile').forEach(el => (el.textContent = username));
+  }
+});
+
 const postContainer = document.getElementById('post-container');
 const categoryButtons = document.querySelectorAll('.category-btn');
 const searchBar = document.querySelector('.search-bar');

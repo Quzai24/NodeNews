@@ -17,6 +17,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/userpage.css" />
   </head>
   <body>
     <!-- Sidebar Button for when small screen -->
@@ -48,7 +49,9 @@
       <div class="offcanvas-body">
         <nav class="nav flex-column navigation">
           <div class="link">
-            <a class="nav-link active" href="./userpage.html"><h3 class="profile">Profile Name</h3></a>
+            <a class="nav-link active" href="./userpage.html"
+              ><h3 class="profile" id="profile">Profile Name</h3></a
+            >
           </div>
           <div class="link">
             <a class="nav-link" href="./index.html"><h3>Home</h3></a>
@@ -73,16 +76,18 @@
           <nav class="nav flex-column navigation">
             <h1>NewsNode</h1>
             <div class="link">
-              <a class="nav-link active" href="./userpage.html"><h3 class="profile">Profile Name</h3></a>
+              <a class="nav-link active" href="./userpage.html"
+                ><h3 class="profile">Profile Name</h3></a
+              >
             </div>
             <div class="link">
-              <a class="nav-link" href="./index.html"><h2>Home</h2></a>
+              <a class="nav-link" href="./index.html"><h3>Home</h3></a>
             </div>
             <div class="link">
-              <a class="nav-link" href="./recent.html"><h2>Recent</h2></a>
+              <a class="nav-link" href="./recent.html"><h3>Recent</h3></a>
             </div>
             <div class="link">
-              <a class="nav-link" href="./trending.html"><h2>Trending</h2></a>
+              <a class="nav-link" href="./trending.html"><h3>Trending</h3></a>
             </div>
           </nav>
           <footer>
@@ -93,9 +98,37 @@
         <!-- Main Content -->
         <div class="col-md-9 col-12 main">
           <!-- User Profile -->
-          <div class="user-profile">
-            <h2 id="username">jolligan8</h2>
-            <p>Welcome to your profile page!</p>
+          <div class="user-profile" id="username">
+            <h2>Profile Name</h2>
+          </div>
+
+          <!-- New Post Form -->
+          <div class="new-post-form mb-4">
+            <h4>Create a Post</h4>
+            <form id="new-post-form">
+              <div class="mb-2">
+                <input type="text" id="post-title" class="form-control" placeholder="Title" required />
+              </div>
+              <div class="mb-2">
+                <textarea id="post-content" class="form-control" rows="4" placeholder="Write your post..." required></textarea>
+              </div>
+              <div class="mb-2">
+                <input type="url" id="post-articleUrl" class="form-control" placeholder="Optional article URL" />
+              </div>
+              <div class="mb-2">
+                <select id="post-category" class="form-select" required>
+                  <option value="">Select category</option>
+                  <option value="health">Health</option>
+                  <option value="tech">Tech</option>
+                  <option value="politics">Politics</option>
+                  <option value="world">World</option>
+                  <option value="science">Science</option>
+                </select>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-primary">Post</button>
+              </div>
+            </form>
           </div>
 
           <!-- News Posts from API -->
