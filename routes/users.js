@@ -73,7 +73,7 @@ router.post('/login', async (req, res) => {
     if (!(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({ error: 'Invalid password.' });
     }
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '10m' });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '24h' });
     const refreshToken = jwt.sign({ userId: user._id }, process.env.JWT_REFRESH_SECRET);
     await db.collection('users').updateOne({ _id: user._id }, { $set: { refreshToken } });
     res.json({ token, refreshToken, user: { _id: user._id, username: user.username } });
@@ -99,7 +99,7 @@ router.post('/refresh', async (req, res) => {
       if (err || decoded.userId.toString() !== user._id.toString()) {
         return res.status(401).json({ error: 'Invalid refresh token.' });
       }
-      const newToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '10m' });
+      const newToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '24h' });
       res.json({ token: newToken });
     });
   } catch (err) {

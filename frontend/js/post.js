@@ -4,12 +4,18 @@ const params = new URLSearchParams(window.location.search);
 const postId = params.get('id');
 const token = localStorage.getItem('token');
 
+document.addEventListener('DOMContentLoaded', () => {
+  const username = localStorage.getItem('username');
+  if (username) {
+    document.querySelectorAll('.profile').forEach((el) => (el.textContent = username));
+  }
+});
+
+
 // Load post
 async function loadPost() {
   try {
-    console.log('Loading post with ID:', postId);
     const post = await apiGet(`/posts/${postId}`);
-    console.log('Post data:', post);
 
     document.getElementById('post-detail').innerHTML = `
       <div class="user-info">
@@ -25,18 +31,18 @@ async function loadPost() {
       </div>
       ${post.articleUrl ? `<a href="${post.articleUrl}" target="_blank" class="btn btn-outline-light btn-sm">Read Article &rarr;</a>` : ''}
       <div class="vote-buttons">
-        <button class="btn btn-outline-light" id="upvote-btn">
+          <button class="btn btn-outline-light upvote-btn">
           <img class="vote-icon" src="./sourceimages/up-arrow.svg" alt="Upvote" />
         </button>
-        <button class="btn btn-outline-light" id="downvote-btn">
+          <button class="btn btn-outline-light downvote-btn">
           <img class="vote-icon" src="./sourceimages/bottom-arrow.svg" alt="Downvote" />
         </button>
         <p id="vote-count">${post.voteCount || 0}</p>
       </div>
     `;
 
-    document.getElementById('upvote-btn').addEventListener('click', () => vote(true));
-    document.getElementById('downvote-btn').addEventListener('click', () => vote(false));
+    document.querySelector('.upvote-btn').addEventListener('click', () => vote(true));
+    document.querySelector('.downvote-btn').addEventListener('click', () => vote(false));
   } catch (err) {
     document.getElementById('post-detail').innerHTML =
       '<p class="text-danger">Failed to load post.</p>';
@@ -88,8 +94,10 @@ document.getElementById('comment-submit').addEventListener('click', async () => 
   const content = input.value.trim();
   if (!content) return;
 
+
   try {
-    await apiPost('/comments', { postId, content });
+    const username = localStorage.getItem('username') || 'Unknown';
+    await apiPost('/comments', { username, postId, content });
     input.value = '';
     loadComments();
   } catch (err) {

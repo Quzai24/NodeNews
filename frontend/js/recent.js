@@ -1,5 +1,10 @@
 import { apiGet } from './api.js';
 
+document.addEventListener('DOMContentLoaded', () => {
+  const username = localStorage.getItem('username');
+  if (username) document.querySelectorAll('.profile').forEach(el => (el.textContent = username));
+});
+
 const recentList = document.getElementById('recent-list');
 const buttons = document.querySelectorAll('.period-buttons button');
 

@@ -1,4 +1,4 @@
-import { apiGet } from './api.js';
+import { apiGet, apiPost } from './api.js';
 
 const postContainer = document.getElementById('post-container');
 const categoryButtons = document.querySelectorAll('.category-btn');
@@ -46,11 +46,11 @@ async function loadPosts(category = '', search = '') {
             <p>${post.content}</p>
           </div>
           <div class="vote-buttons">
-            <button class="btn btn-outline-light">
+            <button class="btn btn-outline-light upvote-btn" data-post-id="${post._id}">
               <img class="vote-icon" src="./sourceimages/up-arrow.svg" alt="Upvote" />
             </button>
-            <p>${post.voteCount || 0}</p>
-            <button class="btn btn-outline-light">
+            <p class="vote-count">${post.voteCount || 0}</p>
+            <button class="btn btn-outline-light downvote-btn" data-post-id="${post._id}">
               <img class="vote-icon" src="./sourceimages/bottom-arrow.svg" alt="Downvote" />
             </button>
             <p>${post.commentCount || 0} comments</p>
@@ -59,8 +59,39 @@ async function loadPosts(category = '', search = '') {
       `,
       )
       .join('');
+
+    // Attach vote button listeners
+    document.querySelectorAll('.upvote-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const postId = btn.dataset.postId;
+        vote(postId, true);
+      });
+    });
+    document.querySelectorAll('.downvote-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const postId = btn.dataset.postId;
+        vote(postId, false);
+      });
+    });
   } catch (err) {
     postContainer.innerHTML = '<p class="text-danger">Failed to load posts.</p>';
+  }
+}
+
+async function vote(postId, value) {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    alert('Please log in to vote.');
+    return;
+  }
+  try {
+    await apiPost('/votes', { postId, value });
+    loadPosts(activeCategory, searchBar.value.trim());
+  } catch (err) {
+    alert('Failed to record vote.');
+    console.error('Vote failed:', err);
   }
 }
 

@@ -1,0 +1,39 @@
+#new-post-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2vw;
+  border: #fff solid 2px;
+  border-radius: 20px;
+      width: 100%;
+}
+
+.mb-2 {
+  width: 100%;
+}
+
+#new-post-form input,
+#new-post-form textarea { 
+  width: 100%;
+  padding: 10px;
+  border: #fff solid 2px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #fff;
+}
+
+#new-post-form select {
+  width: 100%;
+  padding: 10px;
+  border: #fff solid 2px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #fff;
+}
+
+#new-post-form input::placeholder,
+#new-post-form textarea::placeholder,
+#new-post-form select::placeholder {
+  color: #aaa;
+}

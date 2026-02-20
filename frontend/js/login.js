@@ -23,6 +23,7 @@ loginSubmit.addEventListener('click', async (e) => {
     localStorage.setItem('user', JSON.stringify(data.user));
     // continue to index page on successful registration without alert
     alert('Login successful!');
+    // add the username to the user profile page
     window.location.href = '/index.html';
   } catch (err) {
     alert('Login failed: An error occurred.');

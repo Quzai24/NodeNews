@@ -25,7 +25,7 @@ router.get('/post/:postId', async (req, res) => {
 router.post('/', authenticateToken, async (req, res) => {
   try {
     const db = getDB();
-    const { postId, content } = req.body;
+    const { username, postId, content } = req.body;
 
     if (!postId || !content) {
       return res.status(400).json({ error: 'postId and content are required.' });
@@ -34,7 +34,7 @@ router.post('/', authenticateToken, async (req, res) => {
     const newComment = {
       postId: new ObjectId(postId),
       userId: new ObjectId(req.user.userId),
-      username: req.user.username,
+      username: username,
       content: content.trim(),
       createdAt: new Date(),
     };

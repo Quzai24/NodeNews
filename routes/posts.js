@@ -51,7 +51,7 @@ router.get('/:postId', async (req, res) => {
 router.post('/', authenticateToken, async (req, res) => {
   try {
     const db = getDB();
-    const { title, content, articleUrl, category } = req.body;
+    const { username, title, content, articleUrl, category } = req.body;
 
     if (!title || !content) {
       return res.status(400).json({ error: 'Title and content are required.' });
@@ -63,7 +63,7 @@ router.post('/', authenticateToken, async (req, res) => {
       articleUrl: articleUrl || null,
       category: category || 'General',
       userId: new ObjectId(req.user.userId),
-      username: req.user.username,
+      username: username,
       voteCount: 0,
       commentCount: 0,
       createdAt: new Date(),
