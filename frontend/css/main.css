@@ -186,3 +186,7 @@ input[type='text'] {
   width: 30px;
   height: 30px;
 }
+
+.auth-btn-container {
+  margin-bottom: 15px;
+}

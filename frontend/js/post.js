@@ -13,7 +13,7 @@ async function loadPost() {
 
     document.getElementById('post-detail').innerHTML = `
       <div class="user-info">
-        <img class="profile-pic" src="../sourceimages/user.png" alt="Profile Picture" />
+        <img class="profile-pic" src="./sourceimages/user.png" alt="Profile Picture" />
         <div class="user-details">
           <p><strong>${post.username || 'Unknown'}</strong> &bull; ${new Date(post.createdAt).toLocaleDateString()}</p>
         </div>
@@ -26,10 +26,10 @@ async function loadPost() {
       ${post.articleUrl ? `<a href="${post.articleUrl}" target="_blank" class="btn btn-outline-light btn-sm">Read Article &rarr;</a>` : ''}
       <div class="vote-buttons">
         <button class="btn btn-outline-light" id="upvote-btn">
-          <img class="vote-icon" src="../sourceimages/up-arrow.svg" alt="Upvote" />
+          <img class="vote-icon" src="./sourceimages/up-arrow.svg" alt="Upvote" />
         </button>
         <button class="btn btn-outline-light" id="downvote-btn">
-          <img class="vote-icon" src="../sourceimages/bottom-arrow.svg" alt="Downvote" />
+          <img class="vote-icon" src="./sourceimages/bottom-arrow.svg" alt="Downvote" />
         </button>
         <p id="vote-count">${post.voteCount || 0}</p>
       </div>

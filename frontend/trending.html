@@ -57,6 +57,7 @@
             <a class="nav-link active" href="./trending.html"><h3>Trending</h3></a>
           </div>
         </nav>
+        <div class="auth-btn-container"></div>
         <footer>
           <p>&copy; 2026 NewsNode &bull; <a href="/LICENSE">MIT License</a></p>
         </footer>
@@ -70,7 +71,7 @@
           <nav class="nav flex-column navigation">
             <h1>News Node</h1>
             <div class="link">
-            <a class="nav-link" href="./userpage.html"><h3 class="profile">Profile Name</h3></a>
+              <a class="nav-link" href="./userpage.html"><h3 class="profile">Profile Name</h3></a>
             </div>
             <div class="link">
               <a class="nav-link" href="./index.html"><h2>Home</h2></a>
@@ -82,6 +83,7 @@
               <a class="nav-link active" href="./trending.html"><h2>Trending</h2></a>
             </div>
           </nav>
+          <div class="auth-btn-container"></div>
           <footer>
             <p>&copy; 2026 News Node &bull; <a href="/LICENSE">MIT License</a></p>
           </footer>
@@ -112,5 +114,20 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script type="module">
+      const token = localStorage.getItem('token');
+      document.querySelectorAll('.auth-btn-container').forEach((el) => {
+        if (token) {
+          el.innerHTML = '<button class="btn btn-outline-light w-100">Logout</button>';
+          el.querySelector('button').addEventListener('click', () => {
+            localStorage.removeItem('token');
+            localStorage.removeItem('refreshToken');
+            window.location.href = './index.html';
+          });
+        } else {
+          el.innerHTML = '<a href="./login.html" class="btn btn-outline-light w-100">Login</a>';
+        }
+      });
+    </script>
   </body>
 </html>

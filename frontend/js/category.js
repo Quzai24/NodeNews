@@ -29,7 +29,7 @@ async function loadPosts(category = '', search = '') {
         <div class="news-post">
           <div class="user-info">
             <a href="#" class="user-link">
-              <img class="profile-pic" src="../sourceimages/user.png" alt="Profile Picture" />
+              <img class="profile-pic" src="./sourceimages/user.png" alt="Profile Picture" />
             </a>
             <div class="user-details">
               <p>
@@ -47,11 +47,11 @@ async function loadPosts(category = '', search = '') {
           </div>
           <div class="vote-buttons">
             <button class="btn btn-outline-light">
-              <img class="vote-icon" src="../sourceimages/up-arrow.svg" alt="Upvote" />
+              <img class="vote-icon" src="./sourceimages/up-arrow.svg" alt="Upvote" />
             </button>
             <p>${post.voteCount || 0}</p>
             <button class="btn btn-outline-light">
-              <img class="vote-icon" src="../sourceimages/bottom-arrow.svg" alt="Downvote" />
+              <img class="vote-icon" src="./sourceimages/bottom-arrow.svg" alt="Downvote" />
             </button>
             <p>${post.commentCount || 0} comments</p>
           </div>
