@@ -22,8 +22,6 @@ router.get("/:postId", async (req, res) => {
   }
 });
 
-
-
 // CREATE a post (requires login)
 router.post("/", authenticateToken, async (req, res) => {
   try {
@@ -121,5 +119,21 @@ router.delete("/:postId", authenticateToken, async (req, res) => {
     res.status(500).json({ error: "Failed to delete post." });
   }
 });
+
+//GET a post from a user
+router.get("/user/:username", async (req, res) => {
+  try {
+    const { username } = req.params;
+    if (!username) {
+      return res.status(400).json({ error: 'Invalid username.' });
+    }
+    const db = getDB();
+    const posts = await db.collection('posts').find({ username: username }).toArray();
+    res.json(posts);
+    } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch user posts.' });
+    }
+});
+
 
 export default router;
