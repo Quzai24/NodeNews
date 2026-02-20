@@ -5,6 +5,7 @@ import postsRouter from './routes/posts.js';
 import commentsRouter from './routes/comments.js';
 import votesRouter from './routes/votes.js';
 import trendingRouter from './routes/trending.js';
+import recentRouter from './routes/recent.js';
 import searchRouter from './routes/search.js';
 
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ app.use('/api/posts', postsRouter);
 app.use('/api/comments', commentsRouter);
 app.use('/api/votes', votesRouter);
 app.use('/api/trending', trendingRouter);
+app.use('/api/recent', recentRouter);
 app.use('/api/search', searchRouter);
 
 connectDB().then(() => {

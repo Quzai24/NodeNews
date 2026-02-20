@@ -1,5 +1,3 @@
-console.log('Hello, World! This is the frontend JavaScript file.');
-
 const postContainer = document.getElementById('post-container');
 const categoryButtons = document.querySelectorAll('.category-btn');
 const searchBar = document.querySelector('.search-bar');

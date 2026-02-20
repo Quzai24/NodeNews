@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Avijit Singh and Nishant Naravarajula" />
-    <meta name="description" content="Trending news discussions" />
-    <title>NewsNode — Trending</title>
+    <meta name="description" content="Recent news discussions" />
+    <title>NewsNode — Recent</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/trending.css" />
+    <link rel="stylesheet" href="./css/recent.css" />
   </head>
   <body>
     <!-- Sidebar Button for small screen -->
@@ -51,10 +51,10 @@
             <a class="nav-link" href="./index.html"><h3>Home</h3></a>
           </div>
           <div class="link">
-            <a class="nav-link" href="./recent.html"><h3>Recent</h3></a>
+            <a class="nav-link active" href="./recent.html"><h3>Recent</h3></a>
           </div>
           <div class="link">
-            <a class="nav-link active" href="./trending.html"><h3>Trending</h3></a>
+            <a class="nav-link" href="./trending.html"><h3>Trending</h3></a>
           </div>
         </nav>
         <footer>
@@ -76,10 +76,10 @@
               <a class="nav-link" href="./index.html"><h2>Home</h2></a>
             </div>
             <div class="link">
-              <a class="nav-link" href="./recent.html"><h2>Recent</h2></a>
+              <a class="nav-link active" href="./recent.html"><h2>Recent</h2></a>
             </div>
             <div class="link">
-              <a class="nav-link active" href="./trending.html"><h2>Trending</h2></a>
+              <a class="nav-link" href="./trending.html"><h2>Trending</h2></a>
             </div>
           </nav>
           <footer>
@@ -89,7 +89,7 @@
 
         <!-- Main Content -->
         <div class="col-md-9 col-12 main">
-          <h2 class="page-title">Trending</h2>
+          <h2 class="page-title">Recent</h2>
 
           <!-- Time Period Buttons -->
           <div class="period-buttons mb-3">
@@ -98,15 +98,15 @@
             <button class="btn btn-outline-light" data-period="month">This Month</button>
           </div>
 
-          <!-- Trending Posts List -->
-          <div id="trending-list">
-            <p class="text-center text-muted">Loading trending posts...</p>
+          <!-- Recent Posts List -->
+          <div id="recent-list">
+            <p class="text-center text-muted">Loading recent posts...</p>
           </div>
         </div>
       </div>
     </div>
 
-    <script type="module" src="./js/trending.js"></script>
+    <script type="module" src="./js/recent.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

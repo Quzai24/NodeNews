@@ -7,7 +7,9 @@ const token = localStorage.getItem('token');
 // Load post
 async function loadPost() {
   try {
+    console.log('Loading post with ID:', postId);
     const post = await apiGet(`/posts/${postId}`);
+    console.log('Post data:', post);
 
     document.getElementById('post-detail').innerHTML = `
       <div class="user-info">
@@ -26,10 +28,10 @@ async function loadPost() {
         <button class="btn btn-outline-light" id="upvote-btn">
           <img class="vote-icon" src="../sourceimages/up-arrow.svg" alt="Upvote" />
         </button>
-        <p id="vote-count">${post.voteCount || 0}</p>
         <button class="btn btn-outline-light" id="downvote-btn">
           <img class="vote-icon" src="../sourceimages/bottom-arrow.svg" alt="Downvote" />
         </button>
+        <p id="vote-count">${post.voteCount || 0}</p>
       </div>
     `;
 

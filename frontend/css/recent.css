@@ -1,0 +1,16 @@
+#recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.recent-post {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+}
