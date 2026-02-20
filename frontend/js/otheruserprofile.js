@@ -3,6 +3,12 @@ import { refreshToken } from './api.js';
 const postContainer = document.getElementById('post-container');
 const params = new URLSearchParams(window.location.search);
 const username = params.get('username');
+const ourUsername = localStorage.getItem('username');
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (ourUsername) document.querySelectorAll('.profile').forEach((el) => (el.textContent = ourUsername));
+});
+
 
 function showError(msg) {
   postContainer.innerHTML = `<div class="alert alert-danger">${msg}</div>`;

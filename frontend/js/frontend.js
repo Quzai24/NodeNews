@@ -130,5 +130,7 @@ if (searchForm) {
   });
 }
 
+
+
 // Load all posts on page load
 loadPosts();
