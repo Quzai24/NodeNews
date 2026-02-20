@@ -1,16 +1,45 @@
-#trending-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  height: 80vh;
-  overflow-y: scroll;
+.page-title {
+  margin-bottom: 20px;
+}
+
+.period-buttons {
+  margin-bottom: 25px;
 }
 
 .trending-post {
   display: flex;
-  align-items: center;
   gap: 15px;
-  padding: 10px;
-  border: 2px solid #fff;
+  align-items: flex-start;
+  padding: 15px;
+  border: 1px solid #fff;
   border-radius: 20px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.trending-post:hover {
+  background-color: #111;
+}
+
+.trending-rank {
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+.trending-info h5 {
+  font-family: 'Courier New', monospace;
+  margin-bottom: 5px;
+}
+
+.trending-info p {
+  font-family: 'Courier New', monospace;
+  margin: 0;
+}
+
+#trending-list {
+  overflow-y: auto;
+  height: 70vh;
+  padding-right: 10px;
 }

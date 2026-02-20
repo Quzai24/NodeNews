@@ -1,0 +1,25 @@
+.vote-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.vote-buttons p {
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.vote-buttons .btn {
+  padding: 5px 10px;
+}
+
+.vote-buttons .btn:hover {
+  background-color: #222;
+}
+
+.vote-icon {
+  width: 25px;
+  height: 25px;
+}
