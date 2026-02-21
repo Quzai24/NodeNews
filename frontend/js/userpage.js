@@ -3,7 +3,8 @@ import { apiGet, apiPost, apiPut, apiDelete } from './api.js';
 
 const profileNameElem = document.getElementById('username');
 const postContainer = document.getElementById('post-container');
-const username = localStorage.getItem('username');
+const user = JSON.parse(localStorage.getItem('user') || 'null');
+const username = user ? user.username : null;
 const token = localStorage.getItem('token');
 
 document.addEventListener('DOMContentLoaded', () => {
