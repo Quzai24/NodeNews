@@ -2,6 +2,8 @@
 
 A News Social Media platform
 
+<img width="500" height="235" alt="Screenshot 2026-02-20 200035" src="https://github.com/user-attachments/assets/84a5dad6-b8ff-44f7-b716-6ff8ae318b8a" />
+
 ## Developers
 
 - Avijit (Vee) Singh
@@ -126,3 +128,4 @@ http://localhost:3000
 ## License
 
 This project is licensed under the [MIT License](./LICENSE).
+
